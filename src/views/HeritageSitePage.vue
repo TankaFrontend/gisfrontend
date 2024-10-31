@@ -10,8 +10,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" v-for="(site, index) in heritageSites" :key="index">
                         <div class="package-item">
                             <div class="overflow-hidden">
-                                <img 
-                                    @click="openMap([site.latitude, site.longitude])" 
+                                <img  
                                     style="object-fit: cover; height: 250px; width: 100%; cursor: pointer;" 
                                     :src="site.image" 
                                     alt="">
@@ -113,19 +112,6 @@ export default {
 
         async readMore(siteId) {
             this.$router.push({ name: 'heritageDetailPage', params: { id: siteId } });
-        },
-
-        initMap(location) {
-            if (this.map) {
-                this.map.remove();
-            }
-            this.map = L.map('map').setView(location, 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-            }).addTo(this.map);
-
-            L.marker(location).addTo(this.map);
         },
     },
 };
