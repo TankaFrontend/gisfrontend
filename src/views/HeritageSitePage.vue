@@ -1,6 +1,5 @@
 <template>
     <div>
-        
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -19,7 +18,7 @@
                             </div>
                             <div class="d-flex border-bottom">
                                 <small class="flex-fill text-center border-end py-2">
-                                    <i class="fa fa-map-marker-alt text-primary me-2"></i>{{ site.id }}
+                                    <i class="fa fa-map-marker-alt text-primary me-2"></i>{{ site.name }}
                                 </small>
                             </div>
                             <div class="text-center p-4">
@@ -30,7 +29,6 @@
                                     <small class="fa fa-star text-primary"></small>
                                     <small class="fa fa-star text-primary"></small>
                                 </div>
-                                <!-- <p>{{ site.detail }}</p> -->
                                 <div class="d-flex justify-content-center mb-2">
                                     <a class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px;" @click="readMore(site.id)">Read More</a>
                                 </div>
@@ -40,7 +38,7 @@
                 </div>
             </div>
         </div>
-     
+
         <div v-if="showModal" class="modal fade show" style="display: block;">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -56,8 +54,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </template>
 
@@ -70,18 +66,28 @@ export default {
         return {
             showModal: false,
             map: null,
-            heritageSites: [], // Initialize empty, populate from API
+            heritageSites: [],
+            userPayment: null,
         };
     },
 
     mounted() {
         // Redirect to login if not authenticated
         let userLogin = localStorage.getItem('authUser');
+        // let user = localStorage.getItem('user');
         if (!userLogin) {
             this.$router.push({ name: 'loginPage' });
-        }
+        } 
+        // else {
+        //     const userDetail = JSON.parse(atob(user.split('.')[1]));
+            let userDetail = JSON.parse(localStorage.getItem('user'));
 
-        // Fetch heritage sites from the external API
+            // this.userPayment = user.user.payment; 
+
+            console.log(userDetail.payment);
+        // }
+
+        
         this.fetchHeritageSites();
     },
 
@@ -90,12 +96,12 @@ export default {
             try {
                 const response = await axios.get('https://projectbackend-7waf.onrender.com/api/heritageSite/getHeritageSites');
                 this.heritageSites = response.data.map(site => ({
-                    id:site._id,
+                    id: site._id,
                     name: site.name,
                     image: site.image,
                     detail: site.detail,
-                    latitude: parseFloat(site.latitude), // Convert to float
-                    longitude: parseFloat(site.longitude), // Convert to float
+                    latitude: parseFloat(site.latitude),
+                    longitude: parseFloat(site.longitude),
                 }));
             } catch (error) {
                 console.error('Error fetching heritage sites:', error);
@@ -118,21 +124,26 @@ export default {
         },
 
         async readMore(siteId) {
-            // console.log(siteId);
+            
+            // if (this.userPayment <= 0) {
+            //     alert("You need to complete your payment to access this feature.");
+            //     return;
+            // }
+
             this.$router.push({ name: 'heritageDetailPage', params: { id: siteId } });
         },
 
         initMap(location) {
             if (this.map) {
-                this.map.remove(); // Remove existing map instance
+                this.map.remove();
             }
-            this.map = L.map('map').setView(location, 13); // Set the view to the clicked location
+            this.map = L.map('map').setView(location, 13);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
             }).addTo(this.map);
 
-            L.marker(location).addTo(this.map); // Add a marker to the map
+            L.marker(location).addTo(this.map);
         },
     },
 };
@@ -146,6 +157,3 @@ export default {
     display: block;
 }
 </style>
-
-
-

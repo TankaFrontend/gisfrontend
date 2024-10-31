@@ -71,7 +71,7 @@ export default {
             }
         },
         goBack() {
-            this.$router.push({ name: 'heritageSites' });
+            this.$router.push({ name: 'heritagePage' });
         },
 
 

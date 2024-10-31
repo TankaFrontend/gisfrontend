@@ -91,6 +91,11 @@ export default {
                     this.error = res.message
                 }else{
                     localStorage.setItem('authUser', res.accessToken);
+                    localStorage.setItem('user', JSON.stringify(res.user));
+
+                    // let detail = JSON.parse(localStorage.getItem('user'));
+                    // console.log(detail);
+                    
                     
                     this.loading = false;
                     // console.log(localStorage);
