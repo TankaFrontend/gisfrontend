@@ -32,9 +32,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="#" class="nav-item nav-link active">Home</a>
+                        <!-- <a href="#" class="nav-item nav-link active">Home</a> -->
 
-                        <router-link to="/register" class="nav-item nav-link active">
+                        <router-link to="/" class="nav-item nav-link active">
                             Home
                         </router-link>
                         <a href="#" class="nav-item nav-link">About</a>
