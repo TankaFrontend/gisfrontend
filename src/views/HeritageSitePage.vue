@@ -72,22 +72,10 @@ export default {
     },
 
     mounted() {
-        // Redirect to login if not authenticated
         let userLogin = localStorage.getItem('authUser');
-        // let user = localStorage.getItem('user');
         if (!userLogin) {
             this.$router.push({ name: 'loginPage' });
         } 
-        // else {
-        //     const userDetail = JSON.parse(atob(user.split('.')[1]));
-            let userDetail = JSON.parse(localStorage.getItem('user'));
-
-            // this.userPayment = user.user.payment; 
-
-            console.log(userDetail.payment);
-        // }
-
-        
         this.fetchHeritageSites();
     },
 
@@ -124,12 +112,6 @@ export default {
         },
 
         async readMore(siteId) {
-            
-            // if (this.userPayment <= 0) {
-            //     alert("You need to complete your payment to access this feature.");
-            //     return;
-            // }
-
             this.$router.push({ name: 'heritageDetailPage', params: { id: siteId } });
         },
 
