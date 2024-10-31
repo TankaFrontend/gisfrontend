@@ -19,7 +19,7 @@
                             </div>
                             <div class="d-flex border-bottom">
                                 <small class="flex-fill text-center border-end py-2">
-                                    <i class="fa fa-map-marker-alt text-primary me-2"></i>{{ site.name }}
+                                    <i class="fa fa-map-marker-alt text-primary me-2"></i>{{ site.id }}
                                 </small>
                             </div>
                             <div class="text-center p-4">
@@ -32,7 +32,7 @@
                                 </div>
                                 <!-- <p>{{ site.detail }}</p> -->
                                 <div class="d-flex justify-content-center mb-2">
-                                    <a class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px;" @click="readMore">Read More</a>
+                                    <a class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px;" @click="readMore(site.id)">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -90,6 +90,7 @@ export default {
             try {
                 const response = await axios.get('https://projectbackend-7waf.onrender.com/api/heritageSite/getHeritageSites');
                 this.heritageSites = response.data.map(site => ({
+                    id:site._id,
                     name: site.name,
                     image: site.image,
                     detail: site.detail,
@@ -116,8 +117,9 @@ export default {
             }
         },
 
-        readMore(){
-            this.$router.push({ name: 'heritageDetailPage' });
+        async readMore(siteId) {
+            // console.log(siteId);
+            this.$router.push({ name: 'heritageDetailPage', params: { id: siteId } });
         },
 
         initMap(location) {

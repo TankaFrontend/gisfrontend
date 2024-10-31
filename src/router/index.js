@@ -29,7 +29,7 @@ const routes = [
 
 
     {
-      path: "/heritageSiteDetail",
+      path: "/heritageSiteDetail/:id",
       name: "heritageDetailPage",
       component: HeritageSiteDetail,
     },
