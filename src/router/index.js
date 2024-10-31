@@ -1,9 +1,9 @@
 /*eslint-disable*/
 import { createRouter, createWebHistory } from "vue-router";
 import LoginPage from '../components/LoginPage.vue'
-import HomePage from "@/views/HomePage.vue";
-import HeritageSitePage from "@/views/HeritageSitePage.vue";
-import HeritageSiteDetail from "@/views/HeritageSiteDetail.vue";
+import HomePage from "../views/HomePage.vue";
+import HeritageSitePage from "../views/HeritageSitePage.vue";
+import HeritageSiteDetail from "../views/HeritageSiteDetail.vue";
 
 
 const routes = [

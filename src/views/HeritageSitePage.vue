@@ -32,7 +32,7 @@
                                 </div>
                                 <!-- <p>{{ site.detail }}</p> -->
                                 <div class="d-flex justify-content-center mb-2">
-                                    <a class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px;">Read More</a>
+                                    <a class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px;" @click="readMore">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -114,6 +114,10 @@ export default {
                 this.map.remove();
                 this.map = null;
             }
+        },
+
+        readMore(){
+            this.$router.push({ name: 'heritageDetailPage' });
         },
 
         initMap(location) {

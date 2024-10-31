@@ -132,7 +132,7 @@
                 const authUser = localStorage.getItem('authUser');
                 
                 if (authUser) {
-                    this.$router.push({name:'heritageSite'})
+                    this.$router.push({name:'heritagePage'})
                 }
                 else{
                     this.$router.push({name:'loginPage'})
