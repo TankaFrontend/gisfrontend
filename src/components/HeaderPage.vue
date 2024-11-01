@@ -68,7 +68,7 @@
         methods: {
             logout() {
                 localStorage.removeItem('authUser'); // Remove user token or info on logout
-                this.$router.push({ name: 'loginPage' });
+                this.$router.push({ name: 'heritageSite' });
             }
         }
     };
