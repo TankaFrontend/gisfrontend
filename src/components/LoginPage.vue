@@ -29,7 +29,7 @@
                             </div>
                        
 
-                            <button type="submit" class="btn btn-primary w-100 py-3 rounded-3" :disabled="loading">
+                            <button type="submit" class="btn btn-primary w-100 py-3 rounded-3 rounded-pill" :disabled="loading">
                                 <span v-if="loading">           
                                     <div class="loader"></div>
                                 </span>
@@ -89,16 +89,11 @@ export default {
 
                 if (!res.accessToken) {
                     this.error = res.message
+                    this.loading = false;
                 }else{
                     localStorage.setItem('authUser', res.accessToken);
                     localStorage.setItem('user', JSON.stringify(res.user));
-
-                    // let detail = JSON.parse(localStorage.getItem('user'));
-                    // console.log(detail);
-                    
-                    
                     this.loading = false;
-                    // console.log(localStorage);
                     this.$router.push({name:'heritagePage'})
                 }
 
@@ -127,7 +122,7 @@ export default {
 
 
 <style scoped>
-.loader {
+    .loader {
         width: 35px;
         margin-left: 50%;
         padding: 8px;

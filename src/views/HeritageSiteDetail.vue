@@ -57,6 +57,15 @@ export default {
             heritageSite: {}
         };
     },
+
+    mounted() {
+        let userLogin = localStorage.getItem('authUser');
+        if (!userLogin) {
+            this.$router.push({ name: 'loginPage' });
+        } 
+        this.fetchHeritageSites();
+    },
+
     async created() {
         const siteId = this.$route.params.id;
         await this.fetchHeritageDetail(siteId);

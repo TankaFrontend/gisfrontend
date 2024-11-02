@@ -4,6 +4,7 @@ import LoginPage from '../components/LoginPage.vue'
 import HomePage from "../views/HomePage.vue";
 import HeritageSitePage from "../views/HeritageSitePage.vue";
 import HeritageSiteDetail from "../views/HeritageSiteDetail.vue";
+import RegisterPage from "@/components/RegisterPage.vue";
 
 
 const routes = [
@@ -19,6 +20,12 @@ const routes = [
       path: "/login",
       name: "loginPage",
       component: LoginPage,
+    },
+
+    {
+      path: "/register",
+      name: "registerPage",
+      component: RegisterPage,
     },
 
     {
