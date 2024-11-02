@@ -63,7 +63,7 @@ export default {
         if (!userLogin) {
             this.$router.push({ name: 'loginPage' });
         } 
-        this.fetchHeritageSites();
+        // this.fetchHeritageSites();
     },
 
     async created() {

@@ -39,15 +39,17 @@ export default {
     beforeUnmount() {
         window.removeEventListener('storage', this.syncLoginState);
     },
+
     methods: {
         logout() {
             localStorage.removeItem('authUser');
             this.isLoggedIn = false;
-            this.$router.push({ name: 'homePage' });
+            window.location.href = '/'; 
         },
         syncLoginState() {
             this.isLoggedIn = !!localStorage.getItem('authUser');
         }
     }
+
 };
 </script>
