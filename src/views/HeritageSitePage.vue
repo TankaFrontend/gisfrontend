@@ -95,25 +95,26 @@ export default {
             }
         },
 
-        openMap(location) {
-            this.showModal = true;
-            this.$nextTick(() => {
-                this.initMap(location);
-            });
-        },
-
-        closeMap() {
-            this.showModal = false;
-            if (this.map) {
-                this.map.remove();
-                this.map = null;
-            }
-        },
-
         async readMore(siteId) {
-            this.$router.push({ name: 'heritageDetailPage', params: { id: siteId } });
-        },
-    },
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (!user || !user.payment) {
+                alert('Please complete payment to view this site.');
+                return;
+            }
+
+            // Check if paymentTimeline has expired
+            const currentDate = new Date();
+            const paymentExpirationDate = new Date(user.paymentTimeline);
+
+            if (currentDate > paymentExpirationDate) {
+                alert('Your payment access has expired. Please renew to view this site.');
+            } else {
+                this.$router.push({ name: 'heritageDetailPage', params: { id: siteId } });
+            }
+        }
+    }
+
 };
 </script>
 
