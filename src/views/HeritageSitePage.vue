@@ -96,7 +96,7 @@ export default {
         },
 
         async readMore(siteId) {
-            const user = JSON.parse(localStorage.getItem('user'));
+            // const user = JSON.parse(localStorage.getItem('user'));
                 this.$router.push({ name: 'heritageDetailPage', params: { id: siteId } });
 
             // if (!user || !user.payment) {

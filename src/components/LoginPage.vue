@@ -94,8 +94,8 @@ export default {
                     localStorage.setItem('authUser', res.accessToken);
                     localStorage.setItem('user', JSON.stringify(res.user));
                     this.loading = false;
-                    // this.$router.push({name:'heritagePage'})
-                    window.location.href = '/heritageSite'; 
+                    this.$router.push({name:'heritagePage'})
+                    // window.location.href = '/heritageSite'; 
 
                 }
 
