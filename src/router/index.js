@@ -5,6 +5,7 @@ import HomePage from "../views/HomePage.vue";
 import HeritageSitePage from "../views/HeritageSitePage.vue";
 import HeritageSiteDetail from "../views/HeritageSiteDetail.vue";
 import RegisterPage from "@/components/RegisterPage.vue";
+import AdminLoginPage from "@/components/AdminLoginPage.vue";
 
 
 const routes = [
@@ -42,6 +43,13 @@ const routes = [
     },
 
 
+    {
+      path: "/adminLogin",
+      name: "adminLoginPage",
+      component: AdminLoginPage,
+    },
+
+
 ];
 
 
@@ -49,9 +57,9 @@ const routes = [
 
 const router = createRouter({
 
-  history: createWebHistory(process.env.BASE_URL),
- 
-  routes, // short for `routes: routes`
+  history: createWebHashHistory(),
+  routes,
+
 })
 
 
