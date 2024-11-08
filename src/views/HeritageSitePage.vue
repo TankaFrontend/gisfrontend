@@ -97,21 +97,20 @@ export default {
 
         async readMore(siteId) {
             const user = JSON.parse(localStorage.getItem('user'));
-
-            if (!user || !user.payment) {
-                alert('Please complete payment to view this site.');
-                return;
-            }
-
-            // Check if paymentTimeline has expired
-            const currentDate = new Date();
-            const paymentExpirationDate = new Date(user.paymentTimeline);
-
-            if (currentDate > paymentExpirationDate) {
-                alert('Your payment access has expired. Please renew to view this site.');
-            } else {
                 this.$router.push({ name: 'heritageDetailPage', params: { id: siteId } });
-            }
+
+            // if (!user || !user.payment) {
+            //     alert('Please complete payment to view this site.');
+            //     return;
+            // }
+
+            // const currentDate = new Date();
+            // const paymentExpirationDate = new Date(user.paymentTimeline);
+
+            // if (currentDate > paymentExpirationDate) {
+            //     alert('Your payment access has expired. Please renew to view this site.');
+            // } else {
+            // }
         }
     }
 
