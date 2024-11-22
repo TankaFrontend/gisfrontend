@@ -19,7 +19,7 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+234 (0)803416456, +234 (0) 7066108300</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>innovation@nitp.org.ng</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/NITPLagos?t=Qh-mFNrphXoSvol8_JNgfA&s=09" target="_blank"><i class="fab fa-twitter fw-normal"></i></a>
+                        <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/NITPLagos?t=Qh-mFNrphXoSvol8_JNgfA&s=09" target="_blank"><i class="fab fa-twitter fw-normal"></i></a> -->
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/nitpng?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
                         <!-- <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a> -->
